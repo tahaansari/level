@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    font-family: inherit;
+}
+
+img{
+    max-width: 100%;
+}
+
+input{font-size: 14px;}
+html{
+    scroll-behavior: smooth;
+}
+// global styles start
+body{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    background: url(../images/bg.png) no-repeat center/cover;
+    color: #ffffff;
+    line-height: 1.6;
+    // font-size: 18px;
+    &:before{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: black;
+        width: 100%;
+        height: 100vh;
+        opacity: .4;
+        z-index: 0;
+    }
+}
+
+h1,h2,h3,h4,h5,h6{line-height: 1;}
+
+a{text-decoration: none;}
+button{cursor: pointer;}
+
+b{font-weight: bold;}
+
+.text-center{text-align: center;}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 750px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+
+// global styles end
+
+.nav{
+    position: fixed;
+    width: 100%;
+    padding: 50px 0;
+    z-index: 1;
+    transition: .3s;
+    &.bg{
+        padding: 20px 0;
+        background: black;
+    }
+    &__list{
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__link{
+        color: #ffffff;
+        font-weight: bold;
+        margin-left: 20px;
+        // @media(min-width: 992px){
+        //     margin-left: 20px;
+        // }
+    }
+}
+
+.home{
+    position: relative;
+    min-height: 100vh;
+    padding-top: 130px;
+    @media(min-width: 992px){
+        padding-top: 160px;
+    }
+    &__msg{
+        font-size: 18px;
+        margin-bottom: 40px;
+        text-align: center;
+        @media(min-width: 992px){
+            font-size: 28px;
+            margin-bottom: 80px;
+        }
+    }
+    &__row{
+        @media(min-width: 992px){
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__col1{
+        text-align: center;
+        margin-bottom: 40px;
+        padding-right: 15px;
+        @media(min-width: 992px){
+            text-align: left;
+        }
+    }
+    &__col2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 50px;
+        @media(min-width: 992px){
+            padding: 0;
+            width: 360px;
+        }
+    }
+    &__heading1{
+        font-size: 30px;
+        @media(min-width:992px){
+            font-size: 50px;
+        }
+    }
+    &__heading2{
+        font-size: 38px;
+        font-weight: 500;
+        @media(min-width:992px){
+            font-size: 62px;
+        }
+    }
+    &__heading3{
+        font-size: 61px;
+        font-weight: 800;
+        text-transform: uppercase;
+        @media(min-width:992px){
+            font-size: 100px;
+        }
+    }
+    &__heading4{
+        font-size: 42px;
+        font-weight: 300;
+        @media(min-width:992px){
+            font-size: 70px;
+        }
+    }
+    &.bg{
+        @media(max-width:992px){
+            .home__hiring{
+                top: 20px;
+            }
+        }
+    }
+    &__hiring{
+        transition: .3s;
+        font-weight: 700;
+        color: #ffffff;
+        position: fixed;
+        top: 50px;
+        left: 15px;
+        text-decoration: underline;
+        display: flex;
+        z-index: 1;
+        @media(min-width: 992px){
+            position: absolute;
+            top: auto;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &__btw{
+        font-weight: 700;
+        display: none;
+        @media(min-width: 992px){
+            display: block;
+        }
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.waitlist{
+    &__heading{
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    &__title{
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    &__label{
+        font-weight: 500;
+        font-size: 14px;
+        width: 100%;
+        cursor: pointer;
+    }
+    &__input{
+        background: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+        font-weight: 500;
+        
+        &.error{
+            &::placeholder{
+                color: red;
+            }
+        }
+    }
+    &__checkbox{
+        cursor: pointer;
+    }
+    &__submit{
+        padding: 8px 20px;
+        display: block;
+        margin: auto;
+        margin: 15px auto;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    &__list{
+        border-radius: 5px;
+        padding: 15px 20px;
+        background: #ffffff;
+        color: #000000;
+    }
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+
+        position: relative;
+    }
+}
+
+.error-list{
+    margin-top:10px;
+    padding: 5px 20px;
+    font-size: 12px;
+}
+
+.jobs{
+    position: relative;
+    text-align: center;
+    padding-top: 50px;
+    &__heading{
+        margin: 50px 0;
+        font-size: 26px;
+    }
+    &__nowhiring{
+        text-decoration: underline;
+        font-weight: 700;
+        margin: 30px 0;
+        font-size: 24px;
+    }
+    &__btn{
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    &__soontext{
+        margin: 50px 0;
+    }
+}
+
+.freebirdFormviewerViewCenteredContent {
+    width: 100%!important;
+}
+
+.thankyou{
+    display: none;
+    &__row{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    img{
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Hide the browser's default checkbox */
+.waitlist__list input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    pointer-events: none;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .waitlist__item:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .waitlist__item input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .waitlist__item input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .waitlist__item .checkmark:after {
+    left: 7px;
+    top: 4px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

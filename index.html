@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="assets/css/style.min.css" />
+  </head>
+  <body onscroll="handleScroll()">
+    <nav class="nav">
+      <div class="container">
+        <div class="nav__list">
+          <div>
+            <a class="nav__link" href="#home">Home</a>
+          </div>
+          <div>
+            <a class="nav__link" href="#jobs">Jobs</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="home" id="home">
+      <div class="container">
+        <a class="home__hiring" href="#jobs">
+          <span class="home__btw">BTW, </span>
+          We're hiring!</a
+        >
+        <div class="home__msg">
+          A platform built for <b>Life Athletes</b> to achieve
+          <b>Peak Human Potential. </b>
+        </div>
+        <div class="home__row">
+          <div class="home__col1">
+            <h3 class="home__heading1">Get Ready To</h3>
+            <h2 class="home__heading2">Raise Your</h2>
+            <h1 class="home__heading3">Level</h1>
+            <h4 class="home__heading4">15/10/2021</h4>
+          </div>
+          <div class="home__col2">
+            <form class="waitlist" name="userData" action="javascript:void(0)" onsubmit="submitForm()">
+              <div class="waitlist__heading">
+                Join the waitlist & be the first to experience <b>Level.</b>
+              </div>
+              <input required class="waitlist__input" id="name" name="name" type="text" placeholder="Name" />
+              <input required class="waitlist__input" id="email" name="email" type="email" placeholder="Email" />
+              <input
+                class="waitlist__input"
+                type="number"
+                id="phone"
+                name="phone"
+                placeholder="Phone(optional)"
+              />
+              <div class="waitlist__list">
+                <b class="waitlist__title">I want to level up my</b>
+                <div class="waitlist__item">
+                  <label class="waitlist__label" for="mind">Mind</label>
+                  <input name="leveup" class="waitlist__checkbox" id="mind" value="mind" type="checkbox" />
+                  <span class="checkmark"></span>
+                </div>
+                <div class="waitlist__item">
+                  <label class="waitlist__label" for="body">Body</label>
+                  <input name="leveup" class="waitlist__checkbox" id="body" value="body" type="checkbox" />
+                  <span class="checkmark"></span>
+                </div>
+                <div class="waitlist__item">
+                  <label class="waitlist__label" for="consciousness">Consciousness</label>
+                  <input name="leveup" class="waitlist__checkbox" id="consciousness" value="consciousness" type="checkbox" />
+                  <span class="checkmark"></span>
+                </div>
+              </div>
+              <input type="submit" class="waitlist__submit" />
+              <div class="text-center">
+                *By clicking submit, I hereby agree to receiving updates and
+                promotions.
+              </div>
+            </form>
+            <div class="thankyou" id="thankyou">
+              <div class="thankyou__row">
+                <img src="./assets/images/success.png" alt="">
+                <p>Thank you for <br> signing up!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="jobs" id="jobs">
+      <div class="container">
+        <div class="jobs__heading">
+          If you feel passionate about helping 
+          <b>humanity attain Peak Potential,</b> 
+          we may just have the mission you’ve been looking for.</b>
+        </div>
+        <h3 class="jobs__nowhiring">Now Hiring</h3>
+          <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSf5luC58K3uFse_ExR-qQ4A4uXIDJFmrXYnG21X3sXw3JuCKA/viewform?usp=sf_link">
+            <button class="jobs__btn">
+                UI Designer
+            </button>
+          </a>
+        <p class="jobs__soontext">
+          Keep an eye out for more exciting opportunities coming soon!
+        </p>
+      </div>
+    </section>
+  </body>
+  <script>
+    function handleScroll(){
+      console.log('scrolling..')
+      if (window.pageYOffset > 100) {
+        document.getElementsByClassName("nav")[0].classList.add("bg");
+        document.getElementsByClassName("home")[0].classList.add("bg");
+      } else {
+        document.getElementsByClassName("nav")[0].classList.remove("bg");
+        document.getElementsByClassName("home")[0].classList.remove("bg");
+      }
+    }
+    function submitForm(){
+        
+        console.log('form submitted')
+
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let phone = document.getElementById('phone').value;
+
+        let levelup =""
+        for(let i = 0; i<document.getElementsByClassName('waitlist__checkbox').length; i++){
+          if(document.getElementsByClassName('waitlist__checkbox')[i].checked){
+            levelup += document.getElementsByClassName('waitlist__checkbox')[i].value+','
+          }
+        }
+
+        var obj = { name: name,email: email, phone: phone,levelup: levelup.slice(0, -1) };
+
+        fetch("https://api.apispreadsheets.com/data/8800/", {
+          method: "POST",
+          // {"name":"value","email":"value","phone":"value","levelup":"value"}
+          body: JSON.stringify({"data": obj}),
+        }).then(res =>{
+          if (res.status === 201){
+            // SUCCESS
+            // console.log('success')
+            document.userData.style.display = "none"
+            document.getElementById('thankyou').style.display = "block"
+
+
+            setTimeout(function(){
+              window.location.reload()
+            },5000)
+
+          }
+          else{
+            // ERROR
+            console.log('failed')
+          }
+        })
+    }
+  </script>
+</html>
