@@ -411,7 +411,8 @@ b {
 .home {
   position: relative;
   min-height: 100vh;
-  padding-top: 130px;
+  padding-top: 120px;
+  padding-bottom: 50px;
   @media (min-width: 992px) {
     padding-top: 160px;
   }
@@ -432,13 +433,13 @@ b {
   }
   &__col1 {
     text-align: center;
-    margin-bottom: 40px;
     padding-right: 15px;
     @media (min-width: 992px) {
       text-align: left;
     }
   }
   &__col2 {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -475,6 +476,7 @@ b {
   &__heading4 {
     font-size: 42px;
     font-weight: 300;
+    margin-bottom: 40px;
     @media (min-width: 992px) {
       font-size: 70px;
     }
@@ -528,7 +530,7 @@ input[type="number"] {
 .waitlist {
   &__heading {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 18px;
   }
   &__title {
@@ -595,8 +597,8 @@ input[type="number"] {
   position: relative;
   text-align: center;
   padding-top: 50px;
+  padding-bottom: 50px;
   &__heading {
-    margin: 50px 0;
     font-size: 18px;
     @media (min-width: 992px) {
       font-size: 24px;
@@ -605,7 +607,7 @@ input[type="number"] {
   &__nowhiring {
     text-decoration: underline;
     font-weight: 700;
-    margin: 30px 0;
+    margin: 30px 0 20px;
     font-size: 24px;
   }
   &__btn {
@@ -624,6 +626,7 @@ input[type="number"] {
 
 .thankyou {
   display: none;
+  position: absolute;
   &__row {
     flex-direction: column;
     align-items: center;
