@@ -450,6 +450,7 @@ b {
   }
   &__heading1 {
     font-size: 30px;
+    margin-bottom: 15px;
     @media (min-width: 992px) {
       font-size: 50px;
     }
@@ -457,6 +458,7 @@ b {
   &__heading2 {
     font-size: 38px;
     font-weight: 500;
+    margin-bottom: 10px;
     @media (min-width: 992px) {
       font-size: 62px;
     }
@@ -465,6 +467,7 @@ b {
     font-size: 61px;
     font-weight: 800;
     text-transform: uppercase;
+    margin-bottom: 5px;
     @media (min-width: 992px) {
       font-size: 100px;
     }
@@ -525,7 +528,7 @@ input[type="number"] {
 .waitlist {
   &__heading {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 18px;
   }
   &__title {
@@ -541,8 +544,8 @@ input[type="number"] {
   &__input {
     background: #ffffff;
     border: none;
-    padding: 10px 20px;
-    margin-bottom: 15px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
     border-radius: 5px;
     outline: none;
     width: 100%;
@@ -561,7 +564,7 @@ input[type="number"] {
     padding: 8px 20px;
     display: block;
     margin: auto;
-    margin: 15px auto;
+    margin: 20px auto;
     font-weight: 700;
     font-size: 16px;
     cursor: pointer;
