@@ -429,6 +429,7 @@ b {
     @media (min-width: 992px) {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
   }
   &__col1 {
@@ -501,7 +502,7 @@ b {
     @media (min-width: 992px) {
       position: absolute;
       top: auto;
-      bottom: 50px;
+      bottom: 100px;
       left: 50%;
       transform: translateX(-50%);
     }
